@@ -3,8 +3,8 @@
 source 'https://rubygems.org'
 
 gem 'csv'
-gem 'json'
 gem 'httparty'
+gem 'json'
 
 group :development, :test do
   gem 'debug'

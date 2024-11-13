@@ -23,7 +23,7 @@ module ScalingoApi
 
     attr_reader :app
 
-    mapped_resource :deployment
+    mapped_resource :deployments
 
     def initialize(app)
       @app = app
@@ -32,9 +32,3 @@ module ScalingoApi
     end
   end
 end
-
-api = ScalingoApi::API.new('betagouv-site')
-
-api.deployment
-
-debugger

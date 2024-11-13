@@ -15,12 +15,12 @@ module ScalingoApi
       options.merge!(query: { **DEFAULT_PAGINATION_ARGS }) if paginable
 
       define_method(resource_name) do |**opts|
-        plural = "#{resource_name}s"
+        singular = resource_name.to_s.chop # sue me
 
         self
           .class
-          .get("/#{app}/#{plural}/", options.merge(opts))[plural]
-          .map { |entry| self.class.mapper_for(resource_name).new(entry) }
+          .get("/#{app}/#{resource_name}/", options.tap { |o| o[:query] = o[:query].merge(opts) })[resource_name.to_s]
+          .map { |entry| self.class.mapper_for(singular).new(entry) }
       end
     end
 

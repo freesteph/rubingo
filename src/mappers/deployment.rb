@@ -10,7 +10,7 @@ module ScalingoApi
         data['status'] == 'success'
       end
 
-      def average_time
+      def duration
         finished_at - created_at
       end
 

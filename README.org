@@ -1,4 +1,32 @@
-* Scalingo API
+* Scalingo API wrapper
+
 ** Description
-test the build time API
-** Result
+
+This simple Ruby script started as a wrap around the Scalingo API to
+investigate and report on build times.
+
+The native Scalingo CLI also provides duration data but in ASCII
+format that require serious grep/awk skills to parse. It's also more
+fun in Ruby.
+
+** Getting started
+
+1. get yourself an access token by [[https://dashboard.scalingo.com/account/tokens][creating an API token]] then
+   [[https://developers.scalingo.com/index#authentication][exchanging it for a Bearer token]] ;
+2. set the token in a ~SCALINGO_EXCHANGE_TOKEN~ env variable ;
+3. run ~irb -r ./src/scalingo_api.rb~;
+
+Don't worry too much about the ~SCALINGO_EXCHANGE_TOKEN~, it expires
+in 30 minutes.
+
+** API
+
+#+begin_src ruby
+api = ScalingoAPI::API.new("betagouv-site")
+
+data = api.deployments
+
+data.first
+#+end_src
+
+** Provided scripts
