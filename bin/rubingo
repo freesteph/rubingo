@@ -7,6 +7,7 @@ require 'dry/cli'
 
 require_relative '../src/rubingo/commands/average_deployment_time'
 require_relative '../src/rubingo/commands/token'
+require_relative '../src/rubingo/commands/repl'
 
 module Rubingo
   module CLI
@@ -25,6 +26,7 @@ module Rubingo
       register 'version', Version, aliases: ['v', '-v', '--version']
 
       register 'token',   Rubingo::Commands::Token
+      register 'repl',    Rubingo::Commands::Repl
 
       register 'csv' do |prefix|
         prefix.register 'deployment_average_time', Rubingo::Commands::DeploymentsAverage

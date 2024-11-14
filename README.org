@@ -11,24 +11,21 @@ lot more fun in Ruby.
 
 ** Getting started
 
-1. get yourself an access token by [[https://dashboard.scalingo.com/account/tokens][creating an API token]] then
-   [[https://developers.scalingo.com/index#authentication][exchanging it for a Bearer token]] ;
-2. set the token in a ~SCALINGO_EXCHANGE_TOKEN~ env variable ;
-3. run ~irb -r ./src/scalingo_api.rb~;
+1. get yourself an access token by [[https://dashboard.scalingo.com/account/tokens][creating an API token]] and write it
+   into a ~SCALINGO_API_TOKEN~ environment variable;
+2. explore ~./bin/rubingo --help~.
 
-Don't worry too much about the ~SCALINGO_EXCHANGE_TOKEN~, it expires
-in 30 minutes.
+Example :
 
-** API
+#+begin_src sh
+export SCALINGO_API_TOKEN=my token
 
-#+begin_src ruby
-api = Rubingo::API.new("betagouv-site")
-
-data = api.deployments
-
-data.first
+./bin/rubingo repl betagouv-site
 #+end_src
 
-** Provided scripts
+the above will drop you into a Ruby prompt with an ~api~ object
+instantiated with the right app:
 
-- [[./scripts/average_build_time.rb][./scripts/average_build_time.rb]]
+#+begin_src ruby
+api.deployments.last(10).map(&:duration)
+#+end_src
