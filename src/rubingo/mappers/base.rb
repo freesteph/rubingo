@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ScalingoApi
+module Rubingo
   module Mappers
     # the base class for all mappers; stores the data for later access.
     class Base

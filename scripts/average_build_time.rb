@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative '../src/scalingo_api'
+require_relative '../src/rubingo'
 
 PAGE_COUNT = 10
 REPOSITORY = 'betagouv-site'
 
-api = ScalingoApi::API.new(REPOSITORY)
+api = Rubingo::API.new(REPOSITORY)
 
 # get a bunch of data
 data = Array

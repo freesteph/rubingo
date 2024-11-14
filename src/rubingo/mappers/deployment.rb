@@ -2,7 +2,7 @@
 
 require_relative 'base'
 
-module ScalingoApi
+module Rubingo
   module Mappers
     # wraps a single deployment JSON
     class Deployment < Base

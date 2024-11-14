@@ -6,10 +6,10 @@ require 'json'
 require 'csv'
 require 'time'
 
-require_relative 'resource_mapper'
-require_relative 'mappers/deployment'
+require_relative 'rubingo/resource_mapper'
+require_relative 'rubingo/mappers/deployment'
 
-module ScalingoApi
+module Rubingo
   # a simple wrapper around the Scalingo API
   class API
     include HTTParty
@@ -19,7 +19,7 @@ module ScalingoApi
 
     format :json
 
-    extend ScalingoApi::ResourceMapper
+    extend Rubingo::ResourceMapper
 
     attr_reader :app
 

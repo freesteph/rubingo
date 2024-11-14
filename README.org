@@ -1,4 +1,4 @@
-* Scalingo API wrapper
+* Rubingo : a Ruby wrapper around the Scalingo API
 
 ** Description
 
@@ -6,8 +6,8 @@ This simple Ruby script started as a wrap around the Scalingo API to
 investigate and report on build times.
 
 The native Scalingo CLI also provides duration data but in ASCII
-format that require serious grep/awk skills to parse. It's also more
-fun in Ruby.
+format which requires serious grep/awk skills to parse. It's also a
+lot more fun in Ruby.
 
 ** Getting started
 
@@ -22,7 +22,7 @@ in 30 minutes.
 ** API
 
 #+begin_src ruby
-api = ScalingoAPI::API.new("betagouv-site")
+api = Rubingo::API.new("betagouv-site")
 
 data = api.deployments
 

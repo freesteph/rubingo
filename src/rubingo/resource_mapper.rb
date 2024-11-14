@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module ScalingoApi
+module Rubingo
   # ResourceMapper adds the class macro `mapped_ressource` which can
-  # be used to declare and map a resource on the ScalingoAPI.
+  # be used to declare and map a resource on the Rubingo::Api.
   module ResourceMapper
     DEFAULT_PAGINATION_ARGS = {
       page: 1,
@@ -25,7 +25,7 @@ module ScalingoApi
     end
 
     def mapper_for(resource_name)
-      const_get "::ScalingoApi::Mappers::#{resource_name.capitalize}"
+      const_get "::Rubingo::Mappers::#{resource_name.capitalize}"
     end
   end
 end
