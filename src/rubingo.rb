@@ -26,6 +26,7 @@ module Rubingo
     attr_reader :app
 
     mapped_resource :deployments
+    mapped_resource :collaborators
 
     def initialize(app)
       @app = app
