@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'ostruct'
+
 module Rubingo
   # ResourceMapper adds the class macro `mapped_ressource` which can
   # be used to declare and map a resource on the Rubingo::Api.
@@ -26,6 +28,8 @@ module Rubingo
 
     def mapper_for(resource_name)
       const_get "::Rubingo::Mappers::#{resource_name.capitalize}"
+    rescue
+      OpenStruct
     end
   end
 end
