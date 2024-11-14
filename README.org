@@ -29,3 +29,10 @@ instantiated with the right app:
 #+begin_src ruby
 api.deployments.last(10).map(&:duration)
 #+end_src
+
+** Ressources available
+
+- ~deployments~ ;
+- ~collaborators~.
+
+PS: feel free to add new ones, it's [[https://github.com/freesteph/rubingo/commit/a021c3e95e57be6cd54816ddc47c0a25bd791723][that easy]].
