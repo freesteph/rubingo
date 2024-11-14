@@ -3,6 +3,8 @@
 source 'https://rubygems.org'
 
 gem 'csv'
+gem 'dotenv'
+gem 'dry-cli'
 gem 'httparty'
 gem 'json'
 

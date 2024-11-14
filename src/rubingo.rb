@@ -6,6 +6,8 @@ require 'json'
 require 'csv'
 require 'time'
 
+require 'dotenv/load'
+
 require_relative 'rubingo/resource_mapper'
 require_relative 'rubingo/mappers/deployment'
 
