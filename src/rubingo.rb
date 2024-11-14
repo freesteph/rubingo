@@ -16,7 +16,9 @@ module Rubingo
   class API
     include HTTParty
 
-    base_uri 'https://api.osc-fr1.scalingo.com/v1/apps'
+    API_URL = 'https://api.osc-fr1.scalingo.com/v1/apps'
+    SECNUM_API_URL = 'https://api.osc-secnum-fr1.scalingo.com/v1/apps'
+
     basic_auth '', ENV.fetch('SCALINGO_EXCHANGE_TOKEN')
 
     format :json
@@ -28,8 +30,12 @@ module Rubingo
     mapped_resource :deployments
     mapped_resource :collaborators
 
-    def initialize(app)
-      @app = app
+    def initialize(application:, secnum:)
+      @app = application
+
+      api_url = secnum ? SECNUM_API_URL : API_URL
+
+      self.class.base_uri(api_url)
 
       super()
     end

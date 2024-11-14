@@ -2,22 +2,25 @@
 
 require_relative '../../rubingo'
 
+require_relative './arguments/application'
+
 module Rubingo
   module Commands
     class DeploymentsAverage < Dry::CLI::Command
       desc 'Write a CSV of the average deployments build time, per date'
 
-      argument :app, required: true, desc: 'the Scalingo application name'
+      include Rubingo::Commands::Arguments::Application
+
       option :page_count, optional: true, default: 10, desc: 'the number of pages to grab'
 
       def call(**options)
-        api = Rubingo::API.new(options[:app])
+        api = Rubingo::API.new(**options.slice(:application, :secnum))
 
         data = get_last_successful_deployments(api: api, page_count: options[:page_count])
                .group_by { |deploy| deploy.finished_at.to_date.to_s } # group on YYYY-MM-DD format
                .transform_values { |deploys| deploys.map(&:duration).sum.to_i / deploys.length }
 
-        write_csv_file(options[:app], data)
+        write_csv_file(options[:application], data)
       end
 
       private

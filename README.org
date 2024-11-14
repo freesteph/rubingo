@@ -23,6 +23,9 @@ export SCALINGO_API_TOKEN=my token
 ./bin/rubingo token # grab and write an exchange token in .env
 
 ./bin/rubingo repl betagouv-site # explore the betagouv-site resources
+
+# if you app is hosted in the Secnum zone:
+./bin/rubingo repl betagouv-prod --secnum
 #+end_src
 
 the above will drop you into a Ruby prompt with an ~api~ object
