@@ -11,11 +11,12 @@ lot more fun in Ruby.
 
 ** Getting started
 
-1. get yourself an access token by [[https://dashboard.scalingo.com/account/tokens][creating an API token]] and write it
-   into a ~SCALINGO_API_TOKEN~ environment variable;
-2. explore ~./bin/rubingo --help~.
+1. [[https://dashboard.scalingo.com/account/tokens][get yourself a Scalingo API token]];
+2. put it into a ~SCALINGO_API_TOKEN~ environment variable;
+3. use ~./bin/rubingo token~ to get an exchange token;
+3. explore ~./bin/rubingo --help~.
 
-Example :
+** Example
 
 #+begin_src sh
 export SCALINGO_API_TOKEN=my token
